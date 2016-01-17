@@ -3,11 +3,16 @@ logo: #css/images/logo.png # Empty this to unset logo and show site title in the
 
 # Header
 menu:
-  Home: .
-  Archives: archives
-  Categories: categories
-  Tags: tags
-  About: about
+#Home: .
+
+  归档: archives
+  分类: categories
+  标签: tags
+  关于: about
+  #Archives: archives
+  #Categories: categories
+  #Tags: tags
+  #About: about
 
 # Content
 excerpt_link: Read More
@@ -40,8 +45,8 @@ links:
   Hexo: http://hexo.io
 
 # CDN
-cdn: # You can choose "useso" instead of "google apis"(default).
-# cdn: useso
+# You can choose "useso" instead of "google apis"(default).
+cdn: useso
 # OR
 # cdn:
 
