@@ -22,17 +22,21 @@
           </p>
         <% } %>
       <% } else { %>
-                <% if (!index && post.toc){ %>
-                    <div id="toc" class="toc-article">
+              <% if (!index && post.toc){ %>
+                <div id="toc" class="toc-article">
                     <strong class="toc-title"><%= __('article.catalogue') %></strong>
-    <%- toc(post.content) %>
-  </div>
-<% } %>
+                  <%- toc(post.content) %>
+                </div>
+              <% } %>
         <%- post.content %>
       <% } %>
     </div>
     <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('article.share') %></a>
+      <!-- shares on article -->
+      <% if (config.disqus_shortname){ %>
+        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('article.share') %></a>
+      <% } %>
+      <!-- comments on article -->
       <% if (post.comments && config.disqus_shortname){ %>
         <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('article.comments') %></a>
       <% } else if (post.comments && config.duoshuo_shortname){ %>
@@ -53,24 +57,26 @@
   </div>
 </section>
 <% } else if (!index && post.comments && config.duoshuo_shortname){ %>
-  <section id="comments">
-     <!-- 多说评论框 start -->
-     <div id="duoshuo_thread" class="ds-thread" data-thread-key="<%= post.layout %>-<%= post.slug %>" data-title="<%= post.title %>" data-url="<%= page.permalink %>"></div>
-     <!-- 多说评论框 end -->
-     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-     <script type="text/javascript">
-       var duoshuoQuery = {short_name:'<%= config.duoshuo_shortname %>'};
-         (function() {
-           var ds = document.createElement('script');
-           ds.type = 'text/javascript';
-           ds.async = true;
-           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-           ds.charset = 'UTF-8';
-           (document.getElementsByTagName('head')[0]
-              || document.getElementsByTagName('body')[0])
-                .appendChild(ds);
-         })();
-      </script>
-   <!-- 多说公共JS代码 end -->
-   </section>
+<section id="comments">
+   <!-- 多说评论框 start -->
+   <div id="duoshuo_thread" class="ds-thread" data-thread-key="<%= post.layout %>-<%= post.slug %>" data-title="<%= post.title %>" data-url="<%= page.permalink %>">
+   </div>
+   <!-- 多说评论框 end -->
+</section>
 <% } %>
+
+ <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+ <script type="text/javascript">
+   var duoshuoQuery = {short_name:'<%= config.duoshuo_shortname %>'};
+     (function() {
+       var ds = document.createElement('script');
+       ds.type = 'text/javascript';
+       ds.async = true;
+       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+       ds.charset = 'UTF-8';
+       (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0])
+            .appendChild(ds);
+     })();
+  </script>
+<!-- 多说公共JS代码 end -->
