@@ -2,7 +2,7 @@
 <body>
   <div id="container">
     <%- partial('_partial/header') %>
-    <div id="content" class="outer">
+    <div class="outer">
       <% if (theme.profile){ %>
         <%- partial('_partial/profile', null, {cache: !config.relative_link}) %>
       <% } %>
