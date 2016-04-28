@@ -8,7 +8,6 @@
 
   if (is_archive()){
     title = 'Archives';
-
     if (is_month()){
       title += ': ' + page.year + '/' + page.month;
     } else if (is_year()){
@@ -19,6 +18,9 @@
   } else if (is_tag()){
     title = 'Tag: ' + page.tag;
   }
+
+  title  = page.title;
+
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
