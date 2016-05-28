@@ -38,8 +38,8 @@
 .article-header
   padding: article-padding article-padding 0
   .article-title
-    display: block
-    margin-bottom: 14px
+    display: inline
+    vertical-align: middle
 
 .article-title
   text-decoration: none
@@ -51,6 +51,11 @@
     color: color-default
   a&:hover
     color: color-link
+
+.post-title
+  text-align: left
+  vertical-align : middle
+  margin-bottom : 14px
 
 .article-entry
   @extend $base-style
@@ -388,11 +393,20 @@ ol.toc
       color color-theme
       transition color .3s ease-out
 
-.ico_type_Original
-  background : url(../css/images/ico_Original.gif) no-repeat 0 0
+.label
+  width : 20px
+  height : 24px
   vertical-align : middle
-  width : 19px
-  height : 19px
   display : inline-block
-  float : left
-  margin : 5px
+  font-size : 14px
+  text-align : center
+  color : #FFFFFF
+  font-weight : bold
+  padding-top : 3px
+
+.origin-label
+  /*background : url(../css/images/ico_Original.gif) no-repeat 0 0*/
+  background : #44ac57
+
+.forward-label
+  background : #799acc
