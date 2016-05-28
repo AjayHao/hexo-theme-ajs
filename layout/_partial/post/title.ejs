@@ -10,11 +10,16 @@
       <% } else if (post.origin_type == "f"){%>
       <span class="title-label forward-label" title="转帖博客">转</span>
       <% } %>
-      <a class="<%= class_name %>" href="<%- url_for(post.path) %>"><%= post.title %></a>
+      <a class="<%= class_name %>" href="<%- url_for(post.path) %>" ><%= post.title %></a>
     </h1>
   <% } else { %>
-    <h1 class="<%= class_name %>" itemprop="name" class="post-title">
-      <%= post.title %>
+    <h1 class="<%= class_name %> post-title" itemprop="name">
+      <% if (post.origin_type == "o"){ %>
+      <span class="title-label origin-label" title="原创博客">原</span>
+      <% } else if (post.origin_type == "f"){%>
+      <span class="title-label forward-label" title="转帖博客">转</span>
+      <% } %>
+      <span><%= post.title %></span>
     </h1>
   <% } %>
 <% } %>
