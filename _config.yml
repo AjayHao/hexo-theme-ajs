@@ -45,7 +45,7 @@ links:
 
 # CDN
 # You can choose "useso" instead of "google apis"(default).
-cdn: useso
+cdn: googleapis
 # OR
 # cdn:
 
