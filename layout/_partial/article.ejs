@@ -22,26 +22,23 @@
           </p>
         <% } %>
       <% } else { %>
-              <% if (!index && post.toc){ %>
-                <div id="toc" class="toc-article">
-                    <strong class="toc-title"><%= __('article.catalogue') %></strong>
-                  <%- toc(post.content) %>
-                </div>
-              <% } %>
+        <% if (!index && post.toc){ %>
+            <div id="toc" class="toc-article">
+                <strong class="toc-title"><%= __('article.catalogue') %></strong>
+              <%- toc(post.content) %>
+            </div>
+          <% } %>
+          <% if (post.origin_type == "o"){ %>
+          <br>
+            <blockquote><p>转载请注明出处：<%- post.permalink %></p>
+                          <p>访问原文「<a href='<%- post.permalink %>'><%- post.title %></a>」获取最佳阅读体验并参与讨论</p>
+            </blockquote>
+          <% } %>
         <%- post.content %>
       <% } %>
     </div>
     <footer class="article-footer">
-      <!-- shares on article -->
-      <% if (config.disqus_shortname){ %>
-        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('article.share') %></a>
-      <% } %>
-      <!-- comments on article -->
-      <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('article.comments') %></a>
-      <% } else if (post.comments && config.duoshuo_shortname){ %>
-        <a href="<%- post.permalink %>#duoshuo_thread" class="article-comment-link"><%= __('article.comments') %></a>
-      <% } %>
+      <%- partial('post/comment') %>
       <%- partial('post/tag') %>
     </footer>
   </div>
@@ -50,33 +47,3 @@
   <% } %>
 </article>
 
-<% if (!index && post.comments && config.disqus_shortname){ %>
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-<% } else if (!index && post.comments && config.duoshuo_shortname){ %>
-<section id="comments">
-   <!-- 多说评论框 start -->
-   <div id="duoshuo_thread" class="ds-thread" data-thread-key="<%= post.layout %>-<%= post.slug %>" data-title="<%= post.title %>" data-url="<%= page.permalink %>">
-   </div>
-   <!-- 多说评论框 end -->
-</section>
-<% } %>
-
- <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
- <script type="text/javascript">
-   var duoshuoQuery = {short_name:'<%= config.duoshuo_shortname %>'};
-     (function() {
-       var ds = document.createElement('script');
-       ds.type = 'text/javascript';
-       ds.async = true;
-       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-       ds.charset = 'UTF-8';
-       (document.getElementsByTagName('head')[0]
-          || document.getElementsByTagName('body')[0])
-            .appendChild(ds);
-     })();
-  </script>
-<!-- 多说公共JS代码 end -->

@@ -37,20 +37,22 @@
 
 .article-header
   padding: article-padding article-padding 0
-  .article-title
-    display: block
-    margin-bottom: 14px
 
 .article-title
   text-decoration: none
   font-size: 2em
   color: color-default
-  line-height: line-height-title
+  /*line-height: line-height-title*/
   transition: color 0.2s
   a&:visited
     color: color-default
   a&:hover
     color: color-link
+
+.post-title
+  text-align: left
+  vertical-align : middle
+  margin-bottom : 5px
 
 .article-entry
   @extend $base-style
@@ -167,7 +169,7 @@
 
 .article-footer
   clearfix()
-  font-size: 0.85em
+  font-size: 1.1em
   line-height: line-height
   border-top: 1px solid color-border
   padding-top: line-height
@@ -248,7 +250,7 @@
     margin-right: -2px
 
 .article-nav-title
-  font-size: 0.85em
+  font-size: 1em
   line-height: line-height
   margin-top: 0.5em
 
@@ -387,3 +389,23 @@ ol.toc
     &:hover
       color color-theme
       transition color .3s ease-out
+
+.title-label
+  width : 20px
+  height : 24px
+  vertical-align : middle
+  display : inline-block
+  font-size : 14px
+  text-align : center
+  color : #FFFFFF
+  font-weight : bold
+  padding-top : 3px
+  margin-bottom : 5px
+  border-radius : .25em
+
+.origin-label
+  /*background : url(../css/images/ico_Original.gif) no-repeat 0 0*/
+  background : #44ac57
+
+.forward-label
+  background : #799acc

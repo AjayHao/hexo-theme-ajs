@@ -45,14 +45,16 @@ links:
 
 # CDN
 # You can choose "useso" instead of "google apis"(default).
-cdn: useso
+cdn: googleapis
 # OR
 # cdn:
 
 # Miscellaneous
 google_site_verification:
 google_analytics:
-favicon: favicon.png
+baidu_site-verification: IVOt0MfaK0
+baidu_analytics: true
+favicon: /favicon.png
 twitter:
 google_plus:
 fb_admins:
