@@ -1,94 +1,131 @@
-@import "nib"
-@import "_variables"
-@import "_util/mixin"
-@import "_util/grid"
+@import "_partial/*"
 
-global-reset()
-
-input, button
-  margin: 0
-  padding: 0
-  &::-moz-focus-inner
-    border: 0
-    padding: 0
-
-html, body, #container
-  height: 100%
-
-body
-  color: color-default
-  background: color-background
-  font: font-size font-sans
-  -webkit-text-size-adjust: 100%
+html, body
+  width 100%
+  height 100%
+  margin 0
+  color #283444
+  font 400 16px/1 "Open Sans","Hiragino Sans GB",sans-serif
+  -webkit-font-smoothing subpixel-antialiased
+  -webkit-text-size-adjust none
+  overflow hidden
 
 a
-  color: color-link
-  text-decoration: none
-  &:visited
-    color: color-link
+  color inherit
+  text-decoration none
+  cursor pointer
+  -webkit-transition color .35s
+  -moz-transition color .35s
+  -ms-transition color .35s
+  -o-transition color .35s
+  transition color .35s
 
-.outer
-  clearfix()
-  max-width: (column-width + gutter-width) * columns + gutter-width
-  margin: 0 auto
-  padding: 0 gutter-width
-  @media mq-mini
-    padding: 0
+h1, h2, h3, h4, h5, h6
+  font-family inherit
+  font-weight normal
+  margin-top 30px
+  color #283444
+  text-rendering optimizelegibility
+  border-bottom 1px solid #eee
+h1
+  font-size 1.8em
+.nav
+  width 542px
+  height 100%
+  float left
+  background-color white
+  transition margin-left 0.5s cubic-bezier(0.77, 0, 0.175, 1)
+  &.fullscreen
+    margin-left -542px
+  &:hover .semicircle
+    margin-left 0
 
-.left, .alignleft
-  float: left
+.hide-list
+  width 20px
+  height 40px
+  position absolute
+  z-index 30
+  left 542px
+  top 50vh
+  overflow hidden
+  transition left 0.5s cubic-bezier(0.77, 0, 0.175, 1)
+  &.fullscreen
+    left 0
+    .brackets.first
+      display none
+  .semicircle
+    width 20px
+    height 40px
+    border-radius 0 100px 100px 0
+    background-color #42b983
+    cursor pointer
+    margin-left -20px
+    transition margin-left .5s cubic-bezier(0.77, 0, 0.175, 1)
+    .brackets
+      padding-top 12px
+      padding-left 4px
+      font-weight bolder
 
-.right, .alignright
-  float: right
 
-.clear
-  clear: both
+div.img_max
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  background: rgb(255, 255, 255);
+  transition opacity .5s
+img.img_max
+  cursor:zoom-out;
+  position:fixed;
+  z-index: 51;
+  transition: top .5s,left .5s, transform .5s,width .5s,height .5s;
 
-.logo
-  background-size: cover
+img.pswp__img
+  cursor:zoom-out;
 
-.thumbnail 
-  padding : 0
+.mobile-menus-out
+  display none
+  opacity 0
+  transition opacity .4s
+  background: gray;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  top 0
+  &.show
+    display: block;
+    opacity: 0.3;
+.mobile-menus
+  display: block;
+  position: absolute;
+  background: white;
+  height: auto;
+  width: 0;
+  font-size: 0px
+  padding 0
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align center
+  -webkit-border-radius: 30px
+  -moz-border-radius: 30px
+  border-radius: 30px
+  transition width .4s, font-size .4s, padding .4s
+  &.show
+    width: 100px;
+    font-size: 16px
+    padding 20px
+  .dynamic-menu
+    display: block
+    margin-top 20px
+    &:nth-child(1)
+      margin-top 0
 
-.table-valign-middle > thead > tr > th,
-.table-valign-middle > tbody > tr > th,
-.table-valign-middle > tfoot > tr > th,
-.table-valign-middle > thead > tr > td,
-.table-valign-middle > tbody > tr > td,
-.table-valign-middle > tfoot > tr > td {
-  vertical-align : middle
-}
 
-#header-main .outer
-  margin: 0 auto 
-  padding: 0 0 20px
-
-#container
-  position: relative
-  & > .outer
-    margin-bottom: 30px
-
-#main
-  @media mq-normal
-    column(main-column)
-  @media mq-tablet
-    if sidebar
-      column(main-column-tablet)
-    else
-      width: 100%
-
-@import "_extend"
-@import "_partial/header"
-@import "_partial/profile"
-@import "_partial/article"
-@import "_partial/comment"
-@import "_partial/archive"
-@import "_partial/footer"
-@import "_partial/highlight"
-@import "_partial/sidebar"
-
-if sidebar is left
-  #main
-    float: right
-  #profile
-    float: right
+@import "mobile.styl"

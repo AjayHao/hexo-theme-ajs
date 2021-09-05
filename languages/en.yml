@@ -1,29 +1,21 @@
-index:
-  home: 'home'
-  search: 'Search'
-  archive: 'archive'
-  category: 'category'
-  uncategorized: 'uncategorized'
-  tag: 'tag'
-nav:
-  next: 'Next'
-  prev: 'Prev'
-  older: 'Older'
-  newer: 'Newer'
-widget:
-  recents: 'recents'
-  archives: 'archives'
-  categories: 'categories'
-  links: 'links'
-  tags: 'tags'
-  tag_cloud: 'tag cloud'
-article:
-  comments: 'Comments'
-  share: 'Share'
-  catalogue: 'Catalogue'
-profile:
-  follow: 'FOLLOW'
-  post: 'post'
-  tag: 'tag'
-  posts: 'posts'
-  tags: 'tags'
+all_articles: "All"
+about: "About"
+friends: "Friends"
+links: "Links"
+post:
+  title: "Title"
+  author: "Author"
+  created_at: "Created At"
+  updated_at: "Updated At"
+  word_count: "Count"
+  url: "Url"
+  views: "Views 👀"
+  comment: "Comment"
+  copyright: "Copyright"
+  copyright1: "'Attribution-non-commercial-shared in the same way 4.0'"
+  copyright2: "Reprint please keep the original link and author."
+donation:
+  button: "💰"
+  headline: "Help us with donation"
+  alipay: "alipay"
+  weixin: "weixin"

@@ -1,47 +1,15 @@
-<header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="<%- url_for() %>" id="logo"><%- (theme.logo? '<i class="logo" style="background-image: url(' + url_for(theme.logo) + ')"></i>':'') %><span class="site-title"><%= config.title %></span></a>
-      <nav id="main-nav">
-        <% for (var i in theme.menu){ %>
-          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
-        <% } %>
-      </nav>
-      <% if(theme.profile) { %>
-        <nav id="sub-nav">
-          <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="<%= ( theme.gravatar ? gravatar(config.email) : url_for(config.avatar)) %>"><i class="fa fa-caret-down"></i></a>
-          </div>
-        </nav>
-      <% } %>
-      <div id="search-form-wrap">
-        <% if (config.swiftype_install_key) { %>
-          <form class="search-form">
-            <input type="text" class="st-default-search-input search-form-input" placeholder="<%= __('index.search') %>">
-            <button type="submit" class="search-form-submit"></button>
-          </form>
-        <% } else { %>
-          <%- search_form({ button: ' ', text: __('index.search') }) %>
-        <% } %>
-      </div>
-    </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        <% for (var i in theme.menu){ %>
-          <td><a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></td>
-        <% } %>
-        <td>
-          <% if (config.swiftype_install_key) { %>
-            <div class="search-form">
-              <input type="text" class="st-default-search-input search-form-input" placeholder="<%= __('index.search') %>">
-            </div>
-          <% } else { %>
-            <%- search_form({ text: __('index.search') }) %>
-          <% } %>
-        </td>
-      </tr>
-    </table>
-  </div>
-</header>
+<head>
+  <meta charset="utf-8">
+  <title><% if (page.title){ %><%= page.title %> | <% } %><%= config.title %></title>
+  <meta name="keywords" content="<% if (page.tags && page.tags.length){ page.tags.forEach(function(tag, i){%> <%=tag.name%> <% if (i+1<page.tags.length){%>,<%} })}%>">
+  <meta name="description" content="<% if (page.title){ %><%= page.title %> | <% } %><%= config.title %>">
+    <%- fragment_cache('meta', function(){
+      return partial('_partial/meta');
+    }) %>
+  <script src="<%=theme.CDN.echarts_js%>"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="<%=(theme.comment.type=='disqus')%>">
+  <input class="theme_preload_comment" value="<%=theme.comment.preload_comment%>">
+  <input class="theme_blog_path" value="<%=theme.blog_path?theme.blog_path.lastIndexOf("/") === theme.blog_path.length-1?theme.blog_path.slice(0, theme.blog_path.length-1):theme.blog_path:'' %>">
+</div>
