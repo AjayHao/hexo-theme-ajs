@@ -22,7 +22,7 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             <% post.tags.forEach(function(tag, i){ %>
-            <a class="color<%= tag.name.length % 5 + 1 %>"><%=tag.name%></a>
+            <a class="color<%= tag.length % 5 + 1 %>"><%=tag.name%></a>
             <% }) %>
         </span>
         <% } %>
