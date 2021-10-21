@@ -1,4 +1,4 @@
-version: 1.0.1
+version: 1.1.0
 # 你的头像url
 avatar: /images/avatar.png
 favicon: /images/favicon.png
@@ -50,6 +50,9 @@ category:
 # categories:
 #   - 工具
 #   - hexo
+
+# 快捷键
+shortcutKey: true
 
 # 左下角自定义菜单
 menu:
@@ -166,6 +169,7 @@ code:
 highlight:
   on: true # true开启代码高亮
   lineNum: true # true显示行号
+  copy: true # 复制功能
   theme: github
 # 代码高亮主题,效果可以查看 https://highlightjs.org/static/demo/
 # 支持主题：
@@ -225,8 +229,8 @@ disqus:
   # disqus评论系统， 2016年9月被GFW认证，大陆不能使用。
   # 获取shortname：https://help.disqus.com/customer/en/portal/articles/466208-what-s-a-shortname-
 
-gentie:
-  product_key:
+#gentie:
+#  product_key:
   # 网易云跟帖评论系统，https://gentie.163.com/
   # 注册后，进入后台管理，获取代码：复制其中的productKey到product_key中。
   # 网易云跟帖暂时不支持查询评论数，所以启用时，把评论数关掉，上方comment_count: false。
@@ -260,7 +264,19 @@ gitment:
   # gitment : 通过github issue实现的评论系统
   # 开源地址 : https://github.com/imsun/gitment
   # 使用说明 :
-  #
+
+#livere:
+#  data_uid:
+  # 来必力: http://livere.com/
+  # 使用说明 : https://yelog.org//2020/05/23/3-hexo-comment/
+
+#utteranc:
+#  repo: xxx/xxx.github.io # 承载评论的仓库，填上自己新建的仓库
+#  issue_term: pathname    # Issue 与 博客文章 之间映射关系
+#  label: utteranc         # 创建的 Issue 添加的标签
+#  theme: github-light     # 主题，可选主题请查看官方文档 https://utteranc.es/#heading-theme
+# 官方文档 https://utteranc.es/
+# 使用说明 https://yelog.org//2020/05/23/3-hexo-comment/
 
 ##############################
 
